@@ -4,31 +4,28 @@ void solve(){
     int n;
     cin>>n;
     vector<int>arr(n,0);
-    int cn = 0;
-    int count = 0;
-    int sum = 0;
+    int nc = 0;
+    int pc = 0;
     for(int i=0; i < n; i++){
         cin>>arr[i];
-        if(arr[i] < 0)cn++;
-        sum+=arr[i];
-        
+        if(arr[i] == -1)nc++;
+        else pc++;
     }
-    if(cn%2 != 0){
-        sum += 2;
-        count++;
+    // cout<<nc;
+    // cout<<pc;
+    int steps = 0;
+
+    while(pc < nc){
+        steps++;
+        nc--;
+        pc++;
     }
-    while(true){
-        if(sum >= 0){
-            cout<<count;
-            break;
-        }
-        else{
-            while(sum < 0){
-                count++;
-                sum += 2;
-            }
-        }
+    
+        if(nc%2 == 1){
+        steps++;
     }
+    cout<<steps;
+
 }
 int main(){
     int tc;
