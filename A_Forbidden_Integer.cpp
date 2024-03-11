@@ -1,37 +1,49 @@
+// Basic Intution 
+// You Can form any integer with the help of 1
+// So you will find if x is blocked or not
 #include<bits/stdc++.h>
 using namespace std;
-void solve2(int a,int b,int c){
-    int rep = a/b;
-    vector<int>res;
-    for(int i=0; i < rep; i++)res.push_back(b);
-    if(a%b != 0)res.push_back(a%b);
-    cout<<res.size()<<endl;
-    for(int i=0; i < res.size(); i++)cout<<res[i]<<" ";
-}
-void solve1(){
-    int a,b,c;
-    cin>>a>>b>>c;
-    // Checking wether you can do it or not
-
-    if((b == 1 && c == 1) || a%b == c){
-        cout<<"NO";
+void solve(){
+    int n,k,x;
+    cin>>n>>k>>x;
+    if(x != 1){
+        cout<<"YES"<<endl;
+        cout<<n<<endl;
+        for(int i=1; i <= n; i++)cout<<1<<" ";
+        cout<<endl;
     }
     else{
-        cout<<"YES"<<endl;
-        vector<int>res;
-        cout<<a<<endl;
-        for(int i=0; i < a; i++){
-            res.push_back(1);
+        if(k == 1)cout<<"NO"<<endl;
+        else{
+            if(n%2 == 0){
+                cout<<"YES"<<endl;
+                cout<<n/2<<endl;
+                for(int i=1; i <= n/2; i++)cout<<2<<" ";
+                cout<<endl;
+            }
+            else{
+                if(k >= 3){
+                    cout<<"YES"<<endl;
+                    cout<<n/2<<endl;
+                    for(int i=0; i < n/2-1; i++){
+                        cout<<2;
+                        
+                    }
+                    cout<<3<<endl;
+                    // cout<<endl;
+                }
+                else{
+                    cout<<"NO"<<endl;
+                }
+            }
         }
-        for(auto it:res)cout<<it;
     }
-    
 }
 int main(){
     int tc;
     cin>>tc;
     while(tc--){
-        solve1();
-        cout<<endl;
+        solve();
+        // cout<<endl;
     }
 }
